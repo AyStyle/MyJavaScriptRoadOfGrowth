@@ -15,7 +15,7 @@
  *  - 使用双引号或单引号都可以，但不要混着用
  */
 var str = "hello";
-str ="world";
+str = "world";
 
 /**
  * Number数字
@@ -57,4 +57,70 @@ var emptyObj = null;
  */
 var undefined;
 
-// TODO 明天学习P11，https://www.bilibili.com/video/BV1YW411T7GX?p=11&spm_id_from=pageDriver
+
+/**
+ * 强制类型转换
+ * 指将一个数据类型强制转换为其他的数据类型
+ * 这里的类型转换是Number、String、Boolean互转
+ *
+ * 转换为String：
+ *      方式一：调用被转换数据类型的toString()方法
+ *             该方法不会影响到原变量，它会将转换的结果返回
+ *             注意：null和undefined这两个值没有toString方法，如果调用的话会报错
+ *
+ *      方式二：调用String()函数
+ *              使用String()函数做强制类型转换时，对于Number和Boolean实际上就是调用toString()方法
+ *             但是对于null和undefined，就不会调用toString()方法，它会将null直接转为"null"，将undefined转为"undefined"
+ *
+ * 转换为Number：
+ *      方式一：调用Number()函数
+ *             1. 字符串：如果字符串为纯数字，则：直接转换；如果字符串为空或全是空格，则：转为0；其他情况为：NaN
+ *             2. 布尔：true转为1，False转为0
+ *             3. Null转为0
+ *             4. Undefined转为NaN
+ *
+ *      方式二：专门用来对付字符串
+ *             parseInt() 调用该函数将字符串转为int类型，字符串从左开始读起，遇到非数字停止
+ *             parseFloat() 调用该函数将字符串转为float类型，字符串从左开始读起，遇到非数字停止
+ *
+ * 转换为Boolean：
+ *      使用Boolean()函数
+ *      1. 数字转Boolean：除了0和NaN，其余的都是true
+ *      2. 字符串转Boolean：除了空串，其余都是true
+ *      3. null和undefined转为false
+ *      4. 对象转为true
+ */
+var numToStr = 123;
+numToStr = numToStr.toString()
+
+var strToNum = "123"
+strToNum = Number(strToNum)
+strToNum = parseInt(strToNum)
+
+/**
+ * 其他进制的数字
+ *
+ * 16进制：0x开头
+ * 8进制：0开头
+ * 2进制：0b开头
+ */
+
+/**
+ * 运算符也叫做操作符
+ * 通过运算符可以对一个或多个值进行运算，并获取运算结果
+ *
+ * 算术运算符：
+ *      任何值和NaN运算都是NaN
+ *      非Number类型的，会先转换为Number类型再进行计算
+ *
+ *      +：可以对两个值进行加法运算，并将结果返回。
+ *          特例：两个字符串相加会是将字符串拼接起来
+ *               任何值和字符串相加，都会先转为字符串，然后再相加
+ *      -：可以对两个值进行减法运算，并将结果返回
+ *      *：可以对两个值进行乘法运算，并将结果返回
+ *      /：可以对两个值进行除法运算，并将结果返回
+ *      %：可以对两个值进行取模运算，并将结果返回
+ *      注意：除了 + ，其余方法与字符串计算时，都是转为Number类型再计算
+ */
+
+// TODO 明天学习P16，https://www.bilibili.com/video/BV1YW411T7GX?p=16
